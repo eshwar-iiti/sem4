@@ -6,7 +6,7 @@ function login() {
     provider.setCustomParameters({
         prompt: 'select_account'
     });
-    auth.signInWithRedirect(provider);
+    auth.signInWithRedirect(provider).then(console.log);
 }
 
 
