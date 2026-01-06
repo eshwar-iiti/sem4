@@ -1,26 +1,36 @@
-// Updated js/auth.js
+// js/auth.js
+
 function login() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    // Using redirect instead of popup for better compatibility
+    // This will redirect the entire page to Google's login screen
     auth.signInWithRedirect(provider);
 }
-
-// Add this to handle the result after the redirect back
-auth.getRedirectResult().then((result) => {
-    if (result.user) {
-        console.log("Logged in after redirect:", result.user);
-    }
-}).catch((error) => {
-    console.error("Redirect login error:", error);
-});
 
 function logout() {
     auth.signOut().then(() => {
         console.log("Logged out");
+        // Optional: Force a reload to clear any local state
+        window.location.reload();
     }).catch((error) => {
         console.error("Logout error:", error);
     });
 }
+
+// This handles the result when the user is redirected back from Google
+auth.getRedirectResult()
+    .then((result) => {
+        if (result.user) {
+            console.log("Successfully logged in via redirect:", result.user.email);
+        }
+    })
+    .catch((error) => {
+        console.error("Redirect error:", error.code, error.message);
+        if (error.code === 'auth/unauthorized-domain') {
+            alert("Domain not authorized. Please check Firebase Console -> Auth -> Settings -> Authorized Domains.");
+        } else {
+            alert("Login failed: " + error.message);
+        }
+    });
 
 // Listen for auth state changes
 auth.onAuthStateChanged((user) => {
@@ -32,7 +42,10 @@ auth.onAuthStateChanged((user) => {
         loginSection.classList.remove('visible');
         appSection.classList.add('visible');
         userEmail.textContent = user.email;
-        loadDataFromFirebase(user.uid);
+        // Load data from Firestore
+        if (typeof loadDataFromFirebase === 'function') {
+            loadDataFromFirebase(user.uid);
+        }
     } else {
         loginSection.classList.add('visible');
         appSection.classList.remove('visible');
