@@ -1,14 +1,18 @@
-// Simple Google Auth
+// Updated js/auth.js
 function login() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider)
-        .then((result) => {
-            console.log("Logged in:", result.user);
-        }).catch((error) => {
-            console.error("Login error:", error);
-            alert("Login failed: " + error.message);
-        });
+    // Using redirect instead of popup for better compatibility
+    auth.signInWithRedirect(provider);
 }
+
+// Add this to handle the result after the redirect back
+auth.getRedirectResult().then((result) => {
+    if (result.user) {
+        console.log("Logged in after redirect:", result.user);
+    }
+}).catch((error) => {
+    console.error("Redirect login error:", error);
+});
 
 function logout() {
     auth.signOut().then(() => {
