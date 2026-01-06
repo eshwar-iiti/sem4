@@ -2,9 +2,13 @@
 
 function login() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    // This will redirect the entire page to Google's login screen
+    // Force Google to show the account picker every time
+    provider.setCustomParameters({
+        prompt: 'select_account'
+    });
     auth.signInWithRedirect(provider);
 }
+
 
 function logout() {
     auth.signOut().then(() => {
