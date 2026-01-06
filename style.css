@@ -1,0 +1,164 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    color: #667eea;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 6px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #667eea;
+    color: #fff;
+}
+
+.grade-input {
+    width: 70px;
+    padding: 6px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.result-card {
+    padding: 25px;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+}
+
+.value {
+    font-size: 2.4em;
+    font-weight: bold;
+}
+
+.excellent { background: linear-gradient(135deg,#11998e,#38ef7d); }
+.good { background: linear-gradient(135deg,#56ab2f,#a8e063); }
+.average { background: linear-gradient(135deg,#f2994a,#f2c94c); }
+.below-average { background: linear-gradient(135deg,#eb3349,#f45c43); }
+.poor { background: linear-gradient(135deg,#c31432,#240b36); }
+
+.credits {
+    margin-top: 10px;
+    text-align: center;
+    color: #666;
+}
+
+.course-details {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: none;
+}
+
+.course-details.active {
+    display: block;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #667eea;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.auth-container {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+#login-section, #app-section {
+    display: none;
+}
+
+.visible {
+    display: block !important;
+}
+
+.marks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.marks-input-group label {
+    font-size: 12px;
+    color: #555;
+}
+
+.marks-input-group input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
