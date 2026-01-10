@@ -12,6 +12,14 @@ const courseMarksConfig = {
             { id: "surprise", label: "Surprise Quiz (10%)", weight: 10 }
         ],
         note: "Best 3 quizzes are taken (10% each)"
+    },
+    "CS 202": {
+        name: "Automata Theory and Logic",
+        components: [
+            { id: "ass", label: "Quiz 1 (10%)", weight: 20 },
+            { id: "mid", label: "Mid Sem (25%)", weight: 35 },
+            { id: "end", label: "End Sem (35%)", weight: 40 }
+        ]
     }
 };
 
