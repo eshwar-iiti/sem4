@@ -41,7 +41,7 @@ function renderCourseMarks() {
             html += `
             <div class="marks-input-group">
                 <label>${comp.label}</label>
-                <input type="number" placeholder="Marks">
+                <input type="number" id="mark-${safeCode}-${comp.id}" placeholder="Marks">
             </div>
             `;
         });
