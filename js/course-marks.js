@@ -15,7 +15,7 @@ const courseMarksConfig = {
     "CS 202": {
         name: "Automata Theory and Logic",
         components: [
-            { id: "ass", label: "Assignments / Quiz (20%)" },
+            { id: "ass", label: "Assignments / Quiz (25%)" },
             { id: "mid", label: "Mid Sem (35%)" },
             { id: "end", label: "End Sem (40%)" }
         ]
